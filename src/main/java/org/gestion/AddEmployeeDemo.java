@@ -19,7 +19,7 @@ public class AddEmployeeDemo {
 		DoctorRepository doctorRepo = context.getBean(DoctorRepository.class);
 		
 		Client client = new Client("John", "Doe", "John.doe@gmail.com","img");
-		Doctor doctor = new Doctor("Ryad", "Ali-Bey", "ryad.ali-bey@gmail.com","img", 95000);
+		Doctor doctor = new Doctor("Ryad", "Ali-Bey", "ryad.ali-bey@gmail.com","img", "Dentiste", new Date());
 		
 		clientRepo.save(client);
 		doctorRepo.save(doctor);
