@@ -3,7 +3,7 @@ package org.gestion.dao;
 import org.gestion.modele.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TelephoneRepository extends JpaRepository<Telephone, Integer>{
+public interface SpecializationRepository extends JpaRepository<Specialization, Integer>{
 
 	
 }
