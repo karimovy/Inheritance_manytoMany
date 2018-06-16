@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.gestion.modele.Meeting;
+import org.gestion.modele.Appointment;
 import org.gestion.modele.Person;
 
 
@@ -31,7 +31,7 @@ public class Doctor extends Person{
     private double budget;
 
     @OneToMany(mappedBy = "doctor")
-	private List<Meeting> listMeeting;
+	private List<Appointment> listMeeting;
     
 	// Constructors and Getter/Setter methods,
 	public Doctor() {
@@ -52,25 +52,25 @@ public class Doctor extends Person{
     }
 
  // APPOINTMENT
- 		public List<Meeting> getListMeeting() {
+ 		public List<Appointment> getListMeeting() {
  			if (listMeeting == null)
  				listMeeting = new ArrayList<>();
  			return listMeeting;
  		}
 
- 		public Iterator<Meeting> getIteratorMeeting() {
+ 		public Iterator<Appointment> getIteratorMeeting() {
  			if (listMeeting == null)
  				listMeeting = new ArrayList<>();
  			return listMeeting.iterator();
  		}
 
- 		public void setListMeeting(List<Meeting> newListMeeting) {
+ 		public void setListMeeting(List<Appointment> newListMeeting) {
  			removeAllMeeting();
- 			for (Iterator<Meeting> iter = newListMeeting.iterator(); iter.hasNext();)
+ 			for (Iterator<Appointment> iter = newListMeeting.iterator(); iter.hasNext();)
  				addMeeting(iter.next());
  		}
 
- 		public void addMeeting(Meeting newMeeting) {
+ 		public void addMeeting(Appointment newMeeting) {
  			if (newMeeting == null)
  				return;
  			if (this.listMeeting == null)
@@ -81,7 +81,7 @@ public class Doctor extends Person{
  			}
  		}
 
- 		public void removeMeeting(Meeting oldMeeting) {
+ 		public void removeMeeting(Appointment oldMeeting) {
  			if (oldMeeting == null)
  				return;
  			if (this.listMeeting != null && this.listMeeting.contains(oldMeeting)) {
@@ -92,8 +92,8 @@ public class Doctor extends Person{
 
  		public void removeAllMeeting() {
  			if (listMeeting != null) {
- 				Meeting oldMeeting;
- 				for (Iterator<Meeting> iter = getIteratorMeeting(); iter.hasNext();) {
+ 				Appointment oldMeeting;
+ 				for (Iterator<Appointment> iter = getIteratorMeeting(); iter.hasNext();) {
  					oldMeeting = iter.next();
  					iter.remove();
  					oldMeeting.setClient(null);

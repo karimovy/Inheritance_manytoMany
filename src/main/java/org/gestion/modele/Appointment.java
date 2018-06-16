@@ -14,11 +14,11 @@ import javax.persistence.TemporalType;
 
  
 @Entity
-@Table(name = "MEETING")
-public class Meeting implements Serializable{
+@Table(name = "APPOINTMENT")
+public class Appointment implements Serializable{
 	@Id
 	@GeneratedValue
-	@Column(name = "MEETING_ID")
+	@Column(name = "APPOINTMENT_ID")
     private long id;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity= Doctor.class)
@@ -31,10 +31,10 @@ public class Meeting implements Serializable{
     private boolean activated;
     private Date registeredDate;
    
-    public Meeting() {
+    public Appointment() {
 	}
     
-	public Meeting(Doctor doctor, Client client) {
+	public Appointment(Doctor doctor, Client client) {
 		this.doctor = doctor;
 		this.client = client;
 		this.id= Long.parseLong(String.valueOf(doctor.getPersonId()).concat(String.valueOf(client.getPersonId())));
