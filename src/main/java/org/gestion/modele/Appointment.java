@@ -77,13 +77,6 @@ public class Appointment implements Serializable{
         this.registeredDate = registeredDate;
     }
 
-	public Doctor getManager() {
-		return doctor;
-	}
-
-	public void setManager(Doctor doctor) {
-		this.doctor = doctor;
-	}
 
 	public Client getClient() {
 		return client;
